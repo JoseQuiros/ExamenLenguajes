@@ -1,0 +1,45 @@
+﻿@model EjemploMVC.Models.CategoriaModel
+@{
+    ViewData["Title"] = "RegistrarSubCategoria";
+    Layout = "~/Views/Shared/_Layout - Copy.cshtml";
+}
+
+<h1>RegistrarSubCategoria</h1>
+
+
+@using (Html.BeginForm("registrarSubCategoria", "Figura", FormMethod.Post))
+{
+    <div class="row">
+        <div class="col-md-12">
+            @Html.HiddenFor(d => d.Id)
+
+            <div>
+                @Html.LabelFor(d => d.Id)
+                @Html.TextBoxFor(d => d.Id, "", new { @class = "form-control" })
+                @Html.ValidationMessageFor(d => d.Id, null, new { @class = "red" })
+            </div>
+
+            <div>
+
+                <label for="nombre">Nombre de la subCategoria</label>
+                <input class="form-control" id="nombre" name="nombre" type="text">
+          
+
+
+            </div>
+
+            <div>
+                <label for="nombre">id de la subcategoria</label>
+                <input class="form-control" id="idSubCategoria" name="idSubCategoria" type="text">         
+            </div>
+
+
+
+                <br />
+                <div style="text-align:right;">
+                    <input value="Guardar" class="btn btn-primary" type="submit" />
+                </div>
+            </div>
+
+        </div>
+}

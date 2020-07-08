@@ -1,0 +1,33 @@
+﻿
+@{
+    ViewData["Title"] = "Listar";
+    Layout = "~/Views/Shared/_Layout - Copy.cshtml";
+}
+
+<h1>Listar</h1>
+
+@model CategoriaModel
+
+<table class="table table-striped">
+    <tr>
+        <th>ID</th>
+        <th>Nombre</th>
+    </tr>
+    @foreach (CategoriaModel temp in ViewBag.Productos)
+    {
+<tr>
+    <td>@temp.Id</td>
+    <td>@temp.Nombre</td>
+
+
+    <td>
+        <a class="btn btn-danger" href="~/Figura/eliminarCategoria/@temp.Id">Eliminar</a>
+        <a class="btn btn-danger" href="~/Figura/editarCategoria/@temp.Id">Editar</a>
+        <a class="btn btn-danger" href="~/Figura/RegistrarSubCategoria/@temp.Id">Add Sub Category</a>
+    </td>
+</tr>
+    }
+
+
+</table>
+

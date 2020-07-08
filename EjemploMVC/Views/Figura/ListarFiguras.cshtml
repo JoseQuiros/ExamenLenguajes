@@ -1,0 +1,40 @@
+﻿
+@{
+    ViewData["Title"] = "ListarFiguras";
+    Layout = "~/Views/Shared/_Layout - Copy.cshtml";
+}
+
+<h1>ListarFiguras</h1>
+
+
+@model FiguraModel
+
+<table class="table table-striped">
+    <tr>
+        <th>ID</th>
+        <th>Nombre</th>
+        <th>Marca</th>
+        <th>Imagen</th>
+        <th>Precio</th>
+
+    </tr>
+    @foreach (FiguraModel temp in ViewBag.Figuras)
+    {
+<tr>
+    <td>@temp.id</td>
+    <td>@temp.nombre</td>
+    <td>@temp.marca</td>
+    <td>@temp.imagen</td>
+    <td>@temp.precio</td>
+
+    <td>
+        <a class="btn btn-danger" href="~/Figura/eliminarCategoria/@temp.id">Eliminar</a>
+        <a class="btn btn-danger" href="~/Figura/editarCategoria/@temp.id">Editar</a>
+        <a class="btn btn-danger" href="~/Figura/AddCategoria/@temp.id">Add Category</a>
+    </td>
+</tr>
+    }
+
+
+</table>
+

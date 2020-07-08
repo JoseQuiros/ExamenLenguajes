@@ -1,0 +1,100 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <title>Ejemplo utilizando Bootstrap</title>
+    <meta charset="utf-8" />
+    <meta name="description" content="Primer sitio con html 5" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <!--<link rel="stylesheet" type="text/css" href="public/css/estilo.css"/>-->
+    <link rel="shortcut icon" type="image/x-icon" href="~/img/icono.ico" />
+
+
+    <link rel="stylesheet" type="text/css" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+
+    <script type="text/javascript" src="~/js/jquery-3.2.1.js"></script>
+
+    <script>
+        function registarProductoAjax(nombreProducto) {
+            var parametros = { "nombre": nombreProducto };
+            $.ajax(
+                {
+                    data: parametros,
+                    url: '/Producto/RegistrarAjax',
+                    type: 'post',
+                    beforeSend: function () {
+                        $("#resultado").html("Procesando, espere por favor ...");
+                    },
+                    success: function (response) {
+                        $("#resultado").html(response);
+                    }
+                }
+            );
+        } // registarProductoAjax
+    </script>
+
+</head>
+
+<body>
+    <div class="container">
+
+        <div class="row">
+
+            <div class="col-lg-8">
+                <h1>
+                    <a href="index.php">
+                        <img alt="Curso Lenguajes" src="~/img/logo.png" />
+                    </a>
+                </h1>
+            </div>
+
+            <div class="col-lg-4">
+
+
+            
+                <nav class="navbar navbar-default">
+                    <ul class="nav navbar-nav">
+                        <li class="active"><a asp-controller="Producto" asp-action="Index">Inicio</a></li>
+                        <li><a asp-controller="Figura" asp-action="RegistrarCategoria">Registrar Categoria</a></li>
+                        <li><a asp-controller="Figura" asp-action="Listar">Crud Categorias</a></li>
+                        <li><a asp-controller="Figura" asp-action="RegistrarFigura">insertar figuras</a></li>
+                        <li><a asp-controller="Figura" asp-action="ListarFiguras">Crud figuras</a></li>
+
+
+
+                    </ul>
+                </nav>
+            </div>
+
+        </div>
+
+        <div class="row">
+            <div class="col-lg-8">
+
+
+            @RenderBody()
+
+
+
+            </div>
+
+            <div class="col-lg-4">
+                <aside>
+                    <a href="" target="_blank">
+                        <img alt="Mediaci&oacute;n Virtual" src="~/img/mediacionvirtual.png" />
+                    </a>
+                </aside>
+            </div>
+
+        </div>
+
+        <footer>
+           
+        </footer>
+
+    </div>
+
+    <script type="text/javascript" src="public/js/bootstrap.js"></script>
+
+</body>
+</html>

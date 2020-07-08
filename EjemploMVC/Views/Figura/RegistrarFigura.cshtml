@@ -1,0 +1,39 @@
+﻿
+@{
+    ViewData["Title"] = "RegistrarFigura";
+    Layout = "~/Views/Shared/_Layout - Copy.cshtml";
+}
+
+<h1>RegistrarFigura</h1>
+
+<form asp-controller="Figura" asp-action="RegistrarFigura" method="post">
+
+    <div>
+        <label for="nombre">Nombre de la figura</label>
+        <input class="form-control" id="nombre" name="nombre" type="text">
+    </div>
+
+    <div>
+        <label for="marca">marca</label>
+        <input class="form-control" id="marca" name="marca" type="text">
+    </div>
+
+    <div>
+        <label for="imagen">imagen </label>
+        <input class="form-control" id="imagen" name="imagen" type="text">
+    </div>
+
+    <div>
+        <label for="precio">precio</label>
+        <input class="form-control" id="precio" name="precio" type="text">
+    </div>
+    <br />
+
+    <div>
+        <input type="submit" id="registrar" name="registrar" value="Registrar" />
+    </div>
+</form>
+
+
+
+
